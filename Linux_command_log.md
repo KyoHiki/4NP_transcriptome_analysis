@@ -1,3 +1,4 @@
+# 1. Preparation of analysis
 ### Install several softwares through conda
 ```
 conda install bioconda::seqkit
@@ -25,6 +26,7 @@ gunzip GCF_002234675.1_ASM223467v1_genomic.fna.gz
 <br/>
 
 
+# 2. Check original RNA-Seq data
 ### Check quality of fastq files
 #### A total of 118 pairs were checked
 ```seqkit stats -a *.fastq.gz -T | csvtk pretty -t```
