@@ -83,6 +83,7 @@ for idx in "${!F1_juv_C2_1[@]}"; do
     hisat2 -x HdrR -1 ${i}.fastq.gz -2 ${j}.fastq.gz -S ${i}.sam -p 20     # p is number of threads
 done
 ```
+
 <br/>
 
 ### Index sam files 
@@ -90,5 +91,20 @@ done
 for xx in ${F1_juv_C2_1[@]}; do
    samtools sort -O bam -o ${xx}.sorted.bam ${xx}.sam -@20
    samtools index ${xx}.sorted.bam -@20
+done
+```
+<br/>
+<br/>
+<br/>
+
+# 4. Quantification expression levels
+#### Activate HT-Seq 
+```
+conda activate htseq
+```
+#### Activate HT-Seq 
+```
+for xx in ${F1_juv_C2_1[@]}; do
+   htseq-count -f bam ${xx}.sorted.bam ./Hd-rR/GCF_002234675.1_ASM223467v1_genomic.gtf > ${xx}.txt
 done
 ```
