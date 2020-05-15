@@ -43,31 +43,31 @@ hisat2-build ./Hd-rR/GCF_002234675.1_ASM223467v1_genomic.fna HdrR -p 20
 ```
 
 > Headers:
->    len: 733566086
->    gbwtLen: 733566087
->    nodes: 733566087
->    sz: 183391522
->    gbwtSz: 183391522
->    lineRate: 6
->    offRate: 4
->    offMask: 0xfffffff0
->    ftabChars: 10
->    eftabLen: 0
->    eftabSz: 0
->    ftabLen: 1048577
->    ftabSz: 4194308
->    offsLen: 45847881
->    offsSz: 183391524
->    lineSz: 64
->    sideSz: 64
->    sideGbwtSz: 48
->    sideGbwtLen: 192
->    numSides: 3820657
->    numLines: 3820657
->    gbwtTotLen: 244522048
->    gbwtTotSz: 244522048
->    reverse: 0
->    linearFM: Yes
+>    len: 733566086  
+>    gbwtLen: 733566087  
+>    nodes: 733566087  
+>    sz: 183391522  
+>    gbwtSz: 183391522  
+>    lineRate: 6  
+>    offRate: 4  
+>    offMask: 0xfffffff0  
+>    ftabChars: 10  
+>    eftabLen: 0  
+>    eftabSz: 0  
+>    ftabLen: 1048577  
+>    ftabSz: 4194308  
+>    offsLen: 45847881  
+>    offsSz: 183391524  
+>    lineSz: 64  
+>    sideSz: 64  
+>    sideGbwtSz: 48  
+>    sideGbwtLen: 192  
+>    numSides: 3820657  
+>    numLines: 3820657  
+>    gbwtTotLen: 244522048  
+>    gbwtTotSz: 244522048  
+>    reverse: 0  
+>    linearFM: Yes  
 
 <br/>
 
@@ -85,22 +85,22 @@ done
 ```
 <br/>
 
-### One of the output
-> 30326464 reads; of these:
->  30326464 (100.00%) were paired; of these:
->    2848873 (9.39%) aligned concordantly 0 times
->    26130371 (86.16%) aligned concordantly exactly 1 time
->    1347220 (4.44%) aligned concordantly >1 times
->    ----
->    2848873 pairs aligned concordantly 0 times; of these:
->      419738 (14.73%) aligned discordantly 1 time
->    ----
->    2429135 pairs aligned 0 times concordantly or discordantly; of these:
->      4858270 mates make up the pairs; of these:
->        3371524 (69.40%) aligned 0 times
->        1335938 (27.50%) aligned exactly 1 time
->        150808 (3.10%) aligned >1 times
-> 94.44% overall alignment rate
+### One of the output  
+> 30326464 reads; of these:  
+>  30326464 (100.00%) were paired; of these:  
+>    2848873 (9.39%) aligned concordantly 0 times  
+>    26130371 (86.16%) aligned concordantly exactly 1 time  
+>    1347220 (4.44%) aligned concordantly >1 times  
+>    ----  
+>    2848873 pairs aligned concordantly 0 times; of these:  
+>      419738 (14.73%) aligned discordantly 1 time  
+>    ----  
+>    2429135 pairs aligned 0 times concordantly or discordantly; of these:  
+>      4858270 mates make up the pairs; of these:  
+>        3371524 (69.40%) aligned 0 times  
+>        1335938 (27.50%) aligned exactly 1 time  
+>        150808 (3.10%) aligned >1 times  
+> 94.44% overall alignment rate  
 
 # Index sam files 
 ```
