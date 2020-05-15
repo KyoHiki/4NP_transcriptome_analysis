@@ -30,3 +30,82 @@ gunzip GCF_002234675.1_ASM223467v1_genomic.fna.gz
 ### Check quality of fastq files
 #### A total of 118 pairs were checked
 ```seqkit stats -a *.fastq.gz -T | csvtk pretty -t```
+
+<br/>
+<br/>
+<br/>
+
+# 3. Mapping RNA-Seq reads to the reference
+### Index the reference 
+```
+conda activate hisat2
+hisat2-build ./Hd-rR/GCF_002234675.1_ASM223467v1_genomic.fna HdrR -p 20
+```
+
+> Headers:
+>    len: 733566086
+>    gbwtLen: 733566087
+>    nodes: 733566087
+>    sz: 183391522
+>    gbwtSz: 183391522
+>    lineRate: 6
+>    offRate: 4
+>    offMask: 0xfffffff0
+>    ftabChars: 10
+>    eftabLen: 0
+>    eftabSz: 0
+>    ftabLen: 1048577
+>    ftabSz: 4194308
+>    offsLen: 45847881
+>    offsSz: 183391524
+>    lineSz: 64
+>    sideSz: 64
+>    sideGbwtSz: 48
+>    sideGbwtLen: 192
+>    numSides: 3820657
+>    numLines: 3820657
+>    gbwtTotLen: 244522048
+>    gbwtTotSz: 244522048
+>    reverse: 0
+>    linearFM: Yes
+
+<br/>
+
+### Mapping via for loop
+### An example code is shown
+```
+F1_juv_C2_1=(./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_49_1 ./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_50_1 ./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_51_1 ./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_52_1 ./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_53_1 ./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_54_1 ./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_55_1 　./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_56_1)
+F1_juv_C2_2=(./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_49_2 ./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_50_2 ./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_51_2 ./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_52_2 ./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_53_2 ./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_54_2 ./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_55_2 　./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_56_2)
+
+for idx in "${!F1_juv_C2_1[@]}"; do 
+  i=${F1_juv_C2_1[$idx]}
+  j=${F1_juv_C2_2[$idx]}
+    hisat2 -x HdrR -1 ${i}.fastq.gz -2 ${j}.fastq.gz -S ${i}.sam -p 20     # p is number of threads
+done
+```
+<br/>
+
+### One of the output
+> 30326464 reads; of these:
+>  30326464 (100.00%) were paired; of these:
+>    2848873 (9.39%) aligned concordantly 0 times
+>    26130371 (86.16%) aligned concordantly exactly 1 time
+>    1347220 (4.44%) aligned concordantly >1 times
+>    ----
+>    2848873 pairs aligned concordantly 0 times; of these:
+>      419738 (14.73%) aligned discordantly 1 time
+>    ----
+>    2429135 pairs aligned 0 times concordantly or discordantly; of these:
+>      4858270 mates make up the pairs; of these:
+>        3371524 (69.40%) aligned 0 times
+>        1335938 (27.50%) aligned exactly 1 time
+>        150808 (3.10%) aligned >1 times
+> 94.44% overall alignment rate
+
+# Index sam files 
+```
+for xx in ${F1_juv_C2_1[@]}; do
+   samtools sort -O bam -o ${xx}.sorted.bam ${xx}.sam -@20
+   samtools index ${xx}.sorted.bam -@20
+done
+```
