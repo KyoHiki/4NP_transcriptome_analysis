@@ -72,7 +72,7 @@ hisat2-build ./Hd-rR/GCF_002234675.1_ASM223467v1_genomic.fna HdrR -p 20
 <br/>
 
 ### Mapping via for loop
-### An example code is shown
+#### An example code is shown
 ```
 F1_juv_C2_1=(./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_49_1 ./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_50_1 ./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_51_1 ./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_52_1 ./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_53_1 ./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_54_1 ./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_55_1 　./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_56_1)
 F1_juv_C2_2=(./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_49_2 ./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_50_2 ./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_51_2 ./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_52_2 ./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_53_2 ./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_54_2 ./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_55_2 　./raw_RNASeq_data/HN00120498_F1juv/F1_juv_C2_56_2)
@@ -85,24 +85,7 @@ done
 ```
 <br/>
 
-### One of the output  
-> 30326464 reads; of these:  
->  30326464 (100.00%) were paired; of these:  
->    2848873 (9.39%) aligned concordantly 0 times  
->    26130371 (86.16%) aligned concordantly exactly 1 time  
->    1347220 (4.44%) aligned concordantly >1 times  
->    ----  
->    2848873 pairs aligned concordantly 0 times; of these:  
->      419738 (14.73%) aligned discordantly 1 time  
->    ----  
->    2429135 pairs aligned 0 times concordantly or discordantly; of these:  
->      4858270 mates make up the pairs; of these:  
->        3371524 (69.40%) aligned 0 times  
->        1335938 (27.50%) aligned exactly 1 time  
->        150808 (3.10%) aligned >1 times  
-> 94.44% overall alignment rate  
-
-# Index sam files 
+### Index sam files 
 ```
 for xx in ${F1_juv_C2_1[@]}; do
    samtools sort -O bam -o ${xx}.sorted.bam ${xx}.sam -@20
