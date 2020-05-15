@@ -102,7 +102,7 @@ done
 ```
 conda activate htseq
 ```
-#### Activate HT-Seq 
+#### HT-Seq count
 ```
 for xx in ${F1_juv_C2_1[@]}; do
    htseq-count -f bam ${xx}.sorted.bam ./Hd-rR/GCF_002234675.1_ASM223467v1_genomic.gtf > ${xx}.txt
