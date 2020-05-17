@@ -5,6 +5,7 @@ conda install bioconda::seqkit
 conda install bioconda::csvtk
 conda create -n hisat2 bioconda::hisat2
 conda create -n htseq bioconda::htseq
+conda create -n multiqc bioconda::multiqc python=2.7
 ```
 <br/>
 <br/>
@@ -92,6 +93,14 @@ for xx in ${F1_juv_C2_1[@]}; do
    samtools sort -O bam -o ${xx}.sorted.bam ${xx}.sam -@20
    samtools index ${xx}.sorted.bam -@20
 done
+```
+### Check brief summary of sam files 
+```
+for xx in ${samples[@]}; do
+   samtools flagstat ${xx}.sorted.bam -@ 8 > stats_${xx}.txt
+done  
+conda activate multiqc
+multiqc .
 ```
 <br/>
 <br/>
