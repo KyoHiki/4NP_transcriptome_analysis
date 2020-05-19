@@ -20,7 +20,7 @@ conda create -n multiqc bioconda::multiqc python=2.7
 <br/>
 <br/>
   
-### Download the reference genome
+### Download the reference genome (Ref-Seq assembly)
 #### Hd-rR strain (assembly ASM223467v1)
 ```
 wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/234/675/GCF_002234675.1_ASM223467v1/GCF_002234675.1_ASM223467v1_genomic.fna.gz
