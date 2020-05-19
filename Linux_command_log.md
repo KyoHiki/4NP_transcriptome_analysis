@@ -11,7 +11,7 @@ conda create -n multiqc bioconda::multiqc python=2.7
 <br/>
   
 > seqkit 0.12.1  
-> samtools-1.3.1  
+> samtools-1.9  
 > csvtk 0.20.0  
 > hisat2 2.1.0  
 > HTSeq 0.11.3  
