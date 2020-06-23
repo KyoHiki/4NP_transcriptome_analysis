@@ -46,6 +46,7 @@ gunzip GCF_002234675.1_ASM223467v1_genomic.fna.gz
 <br/>
 
 # 3. Mapping RNA-Seq reads to the reference
+#### We did not perform quality and adaptor trimming before mapping.
 ### Index the reference 
 ```
 conda activate hisat2
