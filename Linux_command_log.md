@@ -125,5 +125,6 @@ conda activate htseq
 ```
 for xx in ${F1_juv_C2_1[@]}; do
    htseq-count -r pos -s reverse -t exon -f bam ${xx}.sorted.bam ./Hd-rR/GCF_002234675.1_ASM223467v1_genomic.gtf > ${xx}.txt
-done
+done 
+# As we used Illumina Truseq library, the reads were from reverse strand and "-s reverse" option was used.
 ```
